@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王小貝生日快樂</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- 登入頁面 -->
+    <div class="login-container" id="login-container">
+        <h1>王小貝生日快樂</h1>
+        <form id="login-form">
+            <label for="username">帳號:</label>
+            <input type="text" id="username" required>
+            <label for="password">密碼:</label>
+            <input type="password" id="password" required>
+            <button type="submit">登入</button>
+        </form>
+    </div>
+
+    <!-- 登入後頁面 -->
+    <div class="dashboard" id="dashboard" style="display: none;">
+        <h2>歡迎回來，王小貝！</h2>
+        <div class="buttons-container">
+            <button id="memory1">我們的相遇</button>
+            <button id="memory2">第一次旅行</button>
+            <button id="memory3">生日驚喜</button>
+        </div>
+        <div id="memory-display" class="memory-display">
+            <!-- 顯示選擇的回憶 -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
