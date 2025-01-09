@@ -39,31 +39,87 @@ document.getElementById("memory1").addEventListener("click", function () {
 });
 
 document.getElementById("memory2").addEventListener("click", function () {
+    const memoryDisplay = document.getElementById("memory-display");
     memoryDisplay.style.display = "block";
     memoryDisplay.innerHTML = `
         <h3>第一次旅行</h3>
         <p>我們一起去旅行，度過了充滿歡笑和冒險的時光，那是我們的第一次遠足，一直是我們最美好的回憶。</p>
         <div class="images-container">
-            <img src="./img/ark1.png" alt="旅行照片1">
-            <img src="./img/ark2.png" alt="旅行照片2">
-            <img src="./img/ark3.png" alt="旅行照片3">
-            <img src="./img/ark4.png" alt="旅行照片4">
-            <img src="./img/ark5.png" alt="旅行照片5">
+            <img src="./img/ark1.png" alt="旅行照片1" class="memory-img">
+            <img src="./img/ark2.png" alt="旅行照片2" class="memory-img">
+            <img src="./img/ark3.png" alt="旅行照片3" class="memory-img">
+            <img src="./img/ark4.png" alt="旅行照片4" class="memory-img">
+            <img src="./img/ark5.png" alt="旅行照片5" class="memory-img">
         </div>
     `;
+
+    // 為每張照片添加點擊事件
+    const images = document.querySelectorAll(".memory-img");
+    images.forEach((img) => {
+        img.addEventListener("click", function () {
+            const modal = document.getElementById("image-modal");
+            const modalImg = document.getElementById("modal-img");
+            modal.style.display = "flex";
+            modalImg.src = img.src; // 顯示被點擊的圖片
+        });
+    });
 });
 
+// 關閉模態窗口的功能
+document.getElementById("image-modal").addEventListener("click", function () {
+    this.style.display = "none";
+});
+
+
+
 document.getElementById("memory3").addEventListener("click", function () {
+    const memoryDisplay = document.getElementById("memory-display");
     memoryDisplay.style.display = "block";
     memoryDisplay.innerHTML = `
-        <h3>生日驚喜</h3>
-        <p>這是你給我準備的生日驚喜，完全沒想到會收到這樣的驚喜，我的心充滿了感動...</p>
+        <h3>第一次旅行</h3>
+        <p>我們一起去旅行，度過了充滿歡笑和冒險的時光，那是我們的第一次遠足，一直是我們最美好的回憶。</p>
         <div class="images-container">
-            <img src="birthday1.jpg" alt="生日驚喜照片1">
-            <img src="birthday2.jpg" alt="生日驚喜照片2">
-            <img src="birthday3.jpg" alt="生日驚喜照片3">
-            <img src="birthday4.jpg" alt="生日驚喜照片4">
-            <img src="birthday5.jpg" alt="生日驚喜照片5">
+            <img src="./img/ark1.png" alt="旅行照片1" class="memory-img">
+            <img src="./img/ark2.png" alt="旅行照片2" class="memory-img">
+            <img src="./img/ark3.png" alt="旅行照片3" class="memory-img">
+            <img src="./img/ark4.png" alt="旅行照片4" class="memory-img">
+            <img src="./img/ark5.png" alt="旅行照片5" class="memory-img">
         </div>
     `;
+
+    // 為每張照片添加點擊事件
+    const images = document.querySelectorAll(".memory-img");
+    images.forEach((img) => {
+        img.addEventListener("click", function () {
+            const modal = document.getElementById("image-modal");
+            const modalImg = document.getElementById("modal-img");
+            modal.style.display = "flex";
+            modalImg.src = img.src; // 顯示被點擊的圖片
+        });
+    });
+});
+
+// 關閉模態窗口的功能
+document.getElementById("image-modal").addEventListener("click", function () {
+    this.style.display = "none";
+});
+
+// 背景音樂控制
+const music = document.getElementById("background-music");
+const toggleMusicButton = document.getElementById("toggle-music");
+
+// 自動播放背景音樂
+window.onload = () => {
+    music.play();
+};
+
+// 切換音樂播放/暫停
+toggleMusicButton.addEventListener("click", () => {
+    if (music.paused) {
+        music.play();
+        toggleMusicButton.textContent = "暫停音樂";
+    } else {
+        music.pause();
+        toggleMusicButton.textContent = "播放音樂";
+    }
 });

@@ -9,6 +9,16 @@
 </head>
 
 <body>
+<!-- 背景音樂 -->
+<audio id="background-music" loop>
+    <source src="img/music.mp3" type="audio/mpeg">
+    您的瀏覽器不支援音樂播放。
+</audio>
+
+<!-- 播放控制按鈕 -->
+<div id="music-controls" style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
+    <button id="toggle-music">暫停音樂</button>
+</div>
 
     <!-- 登入頁面 -->
     <div class="login-container" id="login-container">
@@ -40,6 +50,9 @@
             <!-- 顯示選擇的回憶 -->
         </div>
     </div>
+<div id="image-modal" class="modal">
+    <img id="modal-img" alt="放大的圖片">
+</div>
 
     <script src="js/script.js"></script>
 </body>
