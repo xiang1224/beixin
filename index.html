@@ -9,51 +9,69 @@
 </head>
 
 <body>
-<!-- 背景音樂 -->
-<audio id="background-music" loop>
-    <source src="img/music.mp3" type="audio/mpeg">
-    您的瀏覽器不支援音樂播放。
-</audio>
+    <!-- 背景音樂 -->
+    <audio id="background-music" loop>
+        <source src="img/music.mp3" type="audio/mpeg">
+        您的瀏覽器不支援音樂播放。
+    </audio>
 
-<!-- 播放控制按鈕 -->
-<div id="music-controls" style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
-    <button id="toggle-music">暫停音樂</button>
-</div>
-
-    <!-- 登入頁面 -->
-    <div class="login-container" id="login-container">
-        <div class="login-left">
-            <h1>王小貝生日快樂</h1>
-            <form id="login-form">
-                <label for="username">帳號:</label>
-                <input type="text" id="username" required>
-                <label for="password">密碼:</label>
-                <input type="password" id="password" required>
-                <button type="submit">登入</button>
-            </form>
-        </div>
-        <div class="login-right">
-            <img src="img/login.png" alt="生日快樂圖片">
-        </div>
+    <!-- 播放控制按鈕 -->
+    <div id="music-controls" style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
+        <button id="toggle-music">暫停音樂</button>
+    </div>
+    <div class="animated-background">
+        <!-- 動畫的圓點或形狀 -->
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
     </div>
 
+    <!-- 登入頁面 -->
+<div class="login-container" id="login-container">
+    <div class="login-left">
+        <h1>想開禮物，請先登入 ^_^</h1>
+        <form id="login-form">
+            <label for="username">帳號:</label>
+            <input type="text" id="username" required>
+            <label for="password">密碼:</label>
+            <input type="password" id="password" required>
+            <button type="submit">登入</button>
+            <br>
+            <!-- 提示按鈕 -->
+            <button type="button" id="hint-button">查看提示</button>
+        </form>
+    </div>
+    <div class="login-right">
+        <img src="img/login.png" alt="生日快樂圖片">
+    </div>
+</div>
 
     <!-- 登入後頁面 -->
     <div class="dashboard" id="dashboard" style="display: none;">
-        <h2>歡迎回來，王小貝！</h2>
-        <div class="buttons-container">
-            <button id="memory1">我們的相遇</button>
-            <button id="memory2">Ark Pecject</button>
-            <button id="memory3">生日驚喜</button>
+        <div class="bigtitle">
+            <h2 class="wave-text">
+                <span>生</span><span>日</span><span>快</span><span>樂</span><span>！</span>
+            </h2>
         </div>
+
+        <div class="buttons-container">
+            <button id="memory1" class="fade-in-button">我們的相遇 (Knick)</button>
+            <button id="memory2" class="fade-in-button">最甜時光 (Ark Pecject)</button>
+            <button id="memory3" class="fade-in-button">最黏兄妹 (AlphaG 2.0)</button>
+            <button id="memory4" class="fade-in-button">得來不易 (佰安市)</button>
+            <button id="memory5" class="fade-in-button">甘苦人生 (現實RP)</button>
+        </div>
+
         <div id="memory-display" class="memory-display">
             <!-- 顯示選擇的回憶 -->
         </div>
     </div>
-<div id="image-modal" class="modal">
-    <img id="modal-img" alt="放大的圖片">
-</div>
-
+    <div id="image-modal" class="modal">
+        <img id="modal-img" alt="放大的圖片">
+    </div>
+    
     <script src="./js/script.js"></script>
 </body>
 

@@ -6,14 +6,194 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+}
+
+/* 提示框樣式 */
+.hint-box {
+    display: none;
+    /* 預設不顯示 */
+    position: absolute;
+    top: 50%;
+    /* 垂直居中 */
+    left: 50%;
+    /* 水平居中 */
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: #fff;
+    border: 2px solid #3498db;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+
+/* 遮罩層 */
+.hint-overlay {
+    display: none;
+    /* 預設不顯示 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/* 提示按鈕樣式 */
+#hint-button {
+    background-color: #3498db;
+    /* 按鈕背景色 */
+    color: #fff;
+    /* 按鈕文字顏色 */
+    border: none;
+    /* 移除邊框 */
+    border-radius: 5px;
+    /* 圓角 */
+    padding: 10px 20px;
+    /* 內邊距 */
+    font-size: 1rem;
+    /* 字體大小 */
+    font-weight: bold;
+    /* 加粗字體 */
+    cursor: pointer;
+    /* 指針變成手勢 */
+    transition: all 0.3s ease;
+    /* 動態過渡效果 */
+}
+
+#hint-button:hover {
+    background-color: #2980b9;
+    /* 滑鼠懸停時變色 */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    /* 添加陰影效果 */
+}
+
+#hint-button:active {
+    background-color: #1c6a97;
+    /* 按下按鈕時變色 */
+    transform: scale(0.95);
+    /* 按下按鈕時縮小 */
+}
+
+/* 動畫背景容器 */
+.animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    /* 確保背景在最底層 */
+}
+
+/* 動畫形狀樣式 */
+.floating-shape {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: float 10s infinite ease-in-out;
+}
+
+/* 每個形狀的隨機位置 */
+.floating-shape:nth-child(1) {
+    top: 10%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.floating-shape:nth-child(2) {
+    top: 40%;
+    left: 70%;
+    animation-delay: 2s;
+}
+
+.floating-shape:nth-child(3) {
+    top: 60%;
+    left: 10%;
+    animation-delay: 4s;
+}
+
+.floating-shape:nth-child(4) {
+    top: 80%;
+    left: 50%;
+    animation-delay: 6s;
+}
+
+.floating-shape:nth-child(5) {
+    top: 30%;
+    left: 80%;
+    animation-delay: 8s;
+}
+
+/* 動畫效果 */
+@keyframes float {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: translateY(-50px) scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+    }
+}
+
+/* 將文字容器置中 */
+.center-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    flex-direction: column;
+    height: 100vh; /* 使容器占滿整個視窗高度 */
+    background: linear-gradient(120deg, #a1c4fd, #c2e9fb); /* 背景漸變 */
+    margin: 0;
+    overflow: hidden; /* 防止超出 */
+}
+.bigtitle {
+    text-align: center;
+}
+/* 波浪文字 */
+.wave-text {
+    display: inline-block;
+    font-size: 3rem; /* 調整文字大小 */
+    color: #3498db;
+    text-align: center; /* 居中對齊 */
+}
+
+.wave-text span {
+    display: inline-block;
+    animation: wave 1.5s infinite;
+}
+
+.wave-text span:nth-child(1) { animation-delay: 0s; }
+.wave-text span:nth-child(2) { animation-delay: 0.1s; }
+.wave-text span:nth-child(3) { animation-delay: 0.2s; }
+.wave-text span:nth-child(4) { animation-delay: 0.3s; }
+.wave-text span:nth-child(5) { animation-delay: 0.4s; }
+
+/* 波浪動畫效果 */
+@keyframes wave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 /* 背景音樂控制按鈕 */
@@ -261,6 +441,40 @@ form button:hover {
         opacity: 1;
     }
 }
+
+/* 按鈕容器樣式 */
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    /* 垂直排列按鈕 */
+    gap: 10px;
+    /* 按鈕間距 */
+    align-items: center;
+    /* 按鈕置中 */
+}
+
+/* 初始狀態隱藏 */
+.fade-in-button {
+    opacity: 0;
+    /* 初始透明度 */
+    transform: translateY(20px);
+    /* 初始向下偏移 */
+    animation: fadeIn 0.5s ease forwards;
+    /* 動畫 */
+}
+
+/* 動畫效果 */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        /* 最終顯示 */
+        transform: translateY(0);
+        /* 恢復到原位 */
+    }
+}
+
+
+
 /* 響應式設計 */
 @media (max-width: 768px) {
 

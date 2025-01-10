@@ -18,90 +18,120 @@ loginForm.addEventListener("submit", function (event) {
         loginContainer.style.display = "none";
         dashboard.style.display = "block";
     } else {
-        alert("帳號或密碼錯誤！");
+        alert("這麼簡單都能打錯!!!");
     }
 });
 
-// 顯示回憶的內容
-document.getElementById("memory1").addEventListener("click", function () {
-    memoryDisplay.style.display = "block";
-    memoryDisplay.innerHTML = `
-        <h3>我們的相遇</h3>
-        <p>這是我們第一次相遇的回憶，記得那天我們第一次見面，彼此的眼神中都充滿了期待...</p>
-        <div class="images-container">
-            <img src="photo1.jpg" alt="相遇照片1">
-            <img src="photo2.jpg" alt="相遇照片2">
-            <img src="photo3.jpg" alt="相遇照片3">
-            <img src="photo4.jpg" alt="相遇照片4">
-            <img src="photo5.jpg" alt="相遇照片5">
-        </div>
-    `;
-});
+// 點擊事件的通用邏輯
+function setupMemoryClickEvent(memoryId, title, description, imageSources) {
+    document.getElementById(memoryId).addEventListener("click", function () {
+        const memoryDisplay = document.getElementById("memory-display");
+        memoryDisplay.style.display = "block";
+        memoryDisplay.innerHTML = `
+            <h3>${title}</h3>
+            <p>${description}</p>
+            <div class="images-container">
+                ${imageSources.map(src => `<img src="${src}" alt="旅行照片" class="memory-img">`).join('')}
+            </div>
+        `;
 
-document.getElementById("memory2").addEventListener("click", function () {
-    const memoryDisplay = document.getElementById("memory-display");
-    memoryDisplay.style.display = "block";
-    memoryDisplay.innerHTML = `
-        <h3>第一次旅行</h3>
-        <p>我們一起去旅行，度過了充滿歡笑和冒險的時光，那是我們的第一次遠足，一直是我們最美好的回憶。</p>
-        <div class="images-container">
-            <img src="./img/ark1.png" alt="旅行照片1" class="memory-img">
-            <img src="./img/ark2.png" alt="旅行照片2" class="memory-img">
-            <img src="./img/ark3.png" alt="旅行照片3" class="memory-img">
-            <img src="./img/ark4.png" alt="旅行照片4" class="memory-img">
-            <img src="./img/ark5.png" alt="旅行照片5" class="memory-img">
-        </div>
-    `;
-
-    // 為每張照片添加點擊事件
-    const images = document.querySelectorAll(".memory-img");
-    images.forEach((img) => {
-        img.addEventListener("click", function () {
-            const modal = document.getElementById("image-modal");
-            const modalImg = document.getElementById("modal-img");
-            modal.style.display = "flex";
-            modalImg.src = img.src; // 顯示被點擊的圖片
+        // 為每張照片添加點擊事件
+        const images = document.querySelectorAll(".memory-img");
+        images.forEach((img) => {
+            img.addEventListener("click", function () {
+                const modal = document.getElementById("image-modal");
+                const modalImg = document.getElementById("modal-img");
+                modal.style.display = "flex";
+                modalImg.src = img.src; // 顯示被點擊的圖片
+            });
         });
     });
-});
+}
+
+// 設置回憶的點擊事件
+setupMemoryClickEvent("memory1", "第一次旅行", "我們一起去旅行，度過了充滿歡笑和冒險的時光，那是我們的第一次遠足，一直是我們最美好的回憶。", [
+    "./img/ark1.png",
+    "./img/ark2.png",
+    "./img/ark3.png",
+    "./img/ark4.png",
+    "./img/ark5.png"
+]);
+
+setupMemoryClickEvent("memory2", "Ark Project", "我們一起去旅行，度過了充滿歡笑和冒險的時光，那是我們的第一次遠足，一直是我們最美好的回憶。", [
+    "./img/ark1.png",
+    "./img/ark2.png",
+    "./img/ark3.png",
+    "./img/ark4.png",
+    "./img/ark5.png"
+]);
+
+setupMemoryClickEvent("memory3", "AlphaG 2.0", "我們一起去旅行，度過了充滿歡笑和冒險的時光，那是我們的第一次遠足，一直是我們最美好的回憶。", [
+    "./img/ark1.png",
+    "./img/ark2.png",
+    "./img/ark3.png",
+    "./img/ark4.png",
+    "./img/ark5.png"
+]);
+
+setupMemoryClickEvent("memory4", "佰安市", "我們一起去旅行，度過了充滿歡笑和冒險的時光，那是我們的第一次遠足，一直是我們最美好的回憶。", [
+    "./img/ark1.png",
+    "./img/ark2.png",
+    "./img/ark3.png",
+    "./img/ark4.png",
+    "./img/ark5.png"
+]);
+
+setupMemoryClickEvent("memory5", "現實RP", "我們一起去旅行，度過了充滿歡笑和冒險的時光，那是我們的第一次遠足，一直是我們最美好的回憶。", [
+    "./img/ark1.png",
+    "./img/ark2.png",
+    "./img/ark3.png",
+    "./img/ark4.png",
+    "./img/ark5.png"
+]);
 
 // 關閉模態窗口的功能
 document.getElementById("image-modal").addEventListener("click", function () {
     this.style.display = "none";
 });
 
-
-
-document.getElementById("memory3").addEventListener("click", function () {
-    const memoryDisplay = document.getElementById("memory-display");
-    memoryDisplay.style.display = "block";
-    memoryDisplay.innerHTML = `
-        <h3>第一次旅行</h3>
-        <p>我們一起去旅行，度過了充滿歡笑和冒險的時光，那是我們的第一次遠足，一直是我們最美好的回憶。</p>
-        <div class="images-container">
-            <img src="./img/ark1.png" alt="旅行照片1" class="memory-img">
-            <img src="./img/ark2.png" alt="旅行照片2" class="memory-img">
-            <img src="./img/ark3.png" alt="旅行照片3" class="memory-img">
-            <img src="./img/ark4.png" alt="旅行照片4" class="memory-img">
-            <img src="./img/ark5.png" alt="旅行照片5" class="memory-img">
-        </div>
-    `;
-
-    // 為每張照片添加點擊事件
-    const images = document.querySelectorAll(".memory-img");
-    images.forEach((img) => {
-        img.addEventListener("click", function () {
-            const modal = document.getElementById("image-modal");
-            const modalImg = document.getElementById("modal-img");
-            modal.style.display = "flex";
-            modalImg.src = img.src; // 顯示被點擊的圖片
-        });
+document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll(".fade-in-button");
+    buttons.forEach((button, index) => {
+        // 為每個按鈕添加不同的動畫延遲
+        button.style.animationDelay = `${index * 0.5}s`;
     });
 });
 
-// 關閉模態窗口的功能
-document.getElementById("image-modal").addEventListener("click", function () {
-    this.style.display = "none";
+document.addEventListener("DOMContentLoaded", function () {
+    const hintButton = document.getElementById('hint-button');
+    hintButton.addEventListener('click', function () {
+        // 建立提示框
+        const hintBox = document.createElement('div');
+        hintBox.className = 'hint-box';
+        hintBox.innerHTML = `
+            <p><strong>帳號:</strong> 你的Discord帳號</p>
+            <p><strong>密碼:</strong> 你的生日</p>
+            <button id="close-hint">關閉</button>
+        `;
+
+        // 建立遮罩層
+        const overlay = document.createElement('div');
+        overlay.className = 'hint-overlay';
+
+        document.body.appendChild(overlay);
+        document.body.appendChild(hintBox);
+
+        // 顯示提示框與遮罩層
+        overlay.style.display = 'block';
+        hintBox.style.display = 'block';
+
+        // 關閉提示框功能
+        const closeButton = document.getElementById('close-hint');
+        closeButton.addEventListener('click', function () {
+            hintBox.remove();
+            overlay.remove();
+        });
+    });
 });
 
 // 背景音樂控制
@@ -123,3 +153,15 @@ toggleMusicButton.addEventListener("click", () => {
         toggleMusicButton.textContent = "播放音樂";
     }
 });
+
+const container = document.querySelector('.animated-background');
+for (let i = 0; i < 20; i++) {
+    const shape = document.createElement('div');
+    shape.className = 'floating-shape';
+    shape.style.top = Math.random() * 100 + '%';
+    shape.style.left = Math.random() * 100 + '%';
+    shape.style.animationDelay = Math.random() * 10 + 's';
+    container.appendChild(shape);
+}
+
+
