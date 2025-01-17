@@ -473,7 +473,157 @@ form button:hover {
     }
 }
 
+/* 翻頁按鈕樣式 */
+.page-container {
+    margin-top: 20px;
+    text-align: center;
+}
 
+#next-page-button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#next-page-button:hover {
+    background-color: #2980b9;
+}
+
+/* 滿版文字動畫容器樣式 */
+.full-screen-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* 半透明黑色背景 */
+    color: #fff; /* 白色文字 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1000;
+    opacity: 1;
+    animation: fadeOut 2s ease 3s forwards; /* 3 秒後開始淡出動畫 */
+}
+
+.full-screen-message h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    animation: zoomIn 1s ease forwards; /* 放大進入動畫 */
+}
+
+/* 放大文字動畫 */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* 淡出動畫 */
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* 滿版消息樣式 */
+.full-screen-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    /* 黑色背景 */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1000;
+    animation: fadeOut 2s ease 3s forwards;
+    /* 自動消失動畫 */
+}
+
+.full-screen-message h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    animation: scaleUp 1s ease forwards;
+}
+
+/* 消失動畫 */
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* 放大動畫 */
+@keyframes scaleUp {
+    from {
+        transform: scale(0.8);
+    }
+
+    to {
+        transform: scale(1.2);
+    }
+}
+
+/* 滿版消息的基本樣式 */
+.full-screen-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* 黑色背景 */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1000;
+    animation: fadeOut 2s ease 3s forwards; /* 自動消失動畫 */
+}
+
+.full-screen-message h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    animation: scaleUp 1s ease forwards;
+}
+
+
+
+/* 消失動畫 */
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* 放大動畫 */
+@keyframes scaleUp {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1.2);
+    }
+}
 
 /* 響應式設計 */
 @media (max-width: 768px) {

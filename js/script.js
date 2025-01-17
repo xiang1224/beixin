@@ -4,7 +4,8 @@ const usernameInput = document.getElementById("username");
 const passwordInput = document.getElementById("password");
 const loginContainer = document.getElementById("login-container");
 const dashboard = document.getElementById("dashboard");
-const memoryDisplay = document.getElementById("memory-display");
+const pageContainer = document.getElementById("page-container");
+const loginSuccessAnimation = document.getElementById("login-success-animation");
 
 loginForm.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -14,12 +15,36 @@ loginForm.addEventListener("submit", function (event) {
 
     // 檢查登入帳號密碼
     if (username === "beixin" && password === "0123") {
-        // 登入成功，顯示主頁
-        loginContainer.style.display = "none";
-        dashboard.style.display = "block";
+        // 顯示滿版文字動畫
+        loginSuccessAnimation.style.display = "flex";
+
+        // 動畫結束後切換到登入後畫面
+        setTimeout(() => {
+            loginSuccessAnimation.style.display = "none"; // 隱藏動畫
+            loginContainer.style.display = "none";        // 隱藏登入畫面
+            dashboard.style.display = "block";            // 顯示主畫面
+            pageContainer.style.display = "block";        // 顯示翻頁按鈕
+        }, 5000); // 等待 5 秒，確保動畫完整顯示
     } else {
-        alert("這麼簡單都能打錯!!!");
+        alert("帳號或密碼錯誤！");
     }
+});
+
+const nextPageButton = document.getElementById("next-page-button");
+const fullScreenMessage = document.getElementById("full-screen-message");
+
+// 點擊翻頁按鈕
+nextPageButton.addEventListener("click", function () {
+    // 顯示「王小貝，生日快樂!!」的滿版動畫
+    fullScreenMessage.style.display = "flex";
+
+    // 動畫結束後隱藏動畫
+    setTimeout(() => {
+        fullScreenMessage.style.display = "none";
+
+        // 這裡可以添加翻頁後的邏輯
+        alert("翻頁後邏輯執行！");
+    }, 5000); // 等待 5 秒以完成動畫
 });
 
 // 點擊事件的通用邏輯
@@ -50,11 +75,11 @@ function setupMemoryClickEvent(memoryId, title, description, imageSources) {
 
 // 設置回憶的點擊事件
 setupMemoryClickEvent("memory1", "第一次旅行", "我們一起去旅行，度過了充滿歡笑和冒險的時光，那是我們的第一次遠足，一直是我們最美好的回憶。", [
-    "./img/ark1.png",
-    "./img/ark2.png",
-    "./img/ark3.png",
-    "./img/ark4.png",
-    "./img/ark5.png"
+    "./img/kk1.png",
+    "./img/kk2.png",
+    "./img/kk3.png",
+    "./img/kk4.png",
+    "./img/kk5.png"
 ]);
 
 setupMemoryClickEvent("memory2", "Ark Project", "我們一起去旅行，度過了充滿歡笑和冒險的時光，那是我們的第一次遠足，一直是我們最美好的回憶。", [
@@ -82,11 +107,11 @@ setupMemoryClickEvent("memory4", "佰安市", "我們一起去旅行，度過了
 ]);
 
 setupMemoryClickEvent("memory5", "現實RP", "我們一起去旅行，度過了充滿歡笑和冒險的時光，那是我們的第一次遠足，一直是我們最美好的回憶。", [
-    "./img/ark1.png",
-    "./img/ark2.png",
-    "./img/ark3.png",
-    "./img/ark4.png",
-    "./img/ark5.png"
+    "./img/hebe1.jpg",
+    "./img/hebe2.jpg",
+    "./img/hebe3.jpeg",
+    "./img/hebe4.jpg",
+    "./img/hebe5.jpg"
 ]);
 
 // 關閉模態窗口的功能
@@ -101,6 +126,9 @@ document.addEventListener("DOMContentLoaded", function () {
         button.style.animationDelay = `${index * 0.5}s`;
     });
 });
+
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const hintButton = document.getElementById('hint-button');
@@ -133,6 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
 
 // 背景音樂控制
 const music = document.getElementById("background-music");
