@@ -8,13 +8,13 @@
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
-    overflow: hidden;
     background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: Arial, sans-serif;
+    height: 100vh;
+    /* 確保整個視窗充滿 */
 }
 
 /* 提示框樣式 */
@@ -163,20 +163,27 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* 使容器占滿整個視窗高度 */
-    background: linear-gradient(120deg, #a1c4fd, #c2e9fb); /* 背景漸變 */
+    height: 100vh;
+    /* 使容器占滿整個視窗高度 */
+    background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
+    /* 背景漸變 */
     margin: 0;
-    overflow: hidden; /* 防止超出 */
+    overflow: hidden;
+    /* 防止超出 */
 }
+
 .bigtitle {
     text-align: center;
 }
+
 /* 波浪文字 */
 .wave-text {
     display: inline-block;
-    font-size: 3rem; /* 調整文字大小 */
+    font-size: 3rem;
+    /* 調整文字大小 */
     color: #3498db;
-    text-align: center; /* 居中對齊 */
+    text-align: center;
+    /* 居中對齊 */
 }
 
 .wave-text span {
@@ -184,16 +191,37 @@ body {
     animation: wave 1.5s infinite;
 }
 
-.wave-text span:nth-child(1) { animation-delay: 0s; }
-.wave-text span:nth-child(2) { animation-delay: 0.1s; }
-.wave-text span:nth-child(3) { animation-delay: 0.2s; }
-.wave-text span:nth-child(4) { animation-delay: 0.3s; }
-.wave-text span:nth-child(5) { animation-delay: 0.4s; }
+.wave-text span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.wave-text span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.wave-text span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.wave-text span:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.wave-text span:nth-child(5) {
+    animation-delay: 0.4s;
+}
 
 /* 波浪動畫效果 */
 @keyframes wave {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 /* 背景音樂控制按鈕 */
@@ -223,15 +251,14 @@ body {
 /* 登入容器 */
 .login-container {
     display: flex;
-    /* 分為左右兩部分 */
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     width: 800px;
-    /* 總寬度 */
+    /* 寬度 */
     height: 400px;
-    /* 總高度 */
+    /* 高度 */
 }
 
 /* 左側 - 登入表單 */
@@ -344,6 +371,27 @@ form button:hover {
     background-color: #ff4081;
 }
 
+#back-button {
+    display: none;
+    /* 默認隱藏返回按鈕 */
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3498db;
+    /* 初始背景為亮藍色 */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* 平滑的背景色切換效果 */
+}
+
+#back-button:hover {
+    background-color: #2980b9;
+    /* 懸停時改為深藍色 */
+}
+
 /* 記憶顯示區域 */
 .memory-display {
     margin-top: 20px;
@@ -377,9 +425,10 @@ form button:hover {
 .memory-display img {
     width: 200px;
     /* 圖片寬度 */
-    height: auto;
+    height: 150px;
     border-radius: 10px;
 }
+
 /* 圖片容器樣式 */
 .images-container {
     display: grid;
@@ -480,7 +529,8 @@ form button:hover {
 }
 
 #next-page-button {
-    background-color: #3498db;
+    background-color: #e74c3c;
+    /* 初始背景為亮紅色 */
     color: white;
     padding: 10px 20px;
     border: none;
@@ -488,10 +538,12 @@ form button:hover {
     font-size: 1.2rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    /* 平滑的背景色切換效果 */
 }
 
 #next-page-button:hover {
-    background-color: #2980b9;
+    background-color: #c0392b;
+    /* 懸停時改為深紅色 */
 }
 
 /* 滿版文字動畫容器樣式 */
@@ -501,21 +553,25 @@ form button:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.85); /* 半透明黑色背景 */
-    color: #fff; /* 白色文字 */
+    background-color: rgba(0, 0, 0, 0.85);
+    /* 半透明黑色背景 */
+    color: #fff;
+    /* 白色文字 */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     z-index: 1000;
     opacity: 1;
-    animation: fadeOut 2s ease 3s forwards; /* 3 秒後開始淡出動畫 */
+    animation: fadeOut 2s ease 3s forwards;
+    /* 3 秒後開始淡出動畫 */
 }
 
 .full-screen-message h1 {
     font-size: 3rem;
     font-weight: bold;
-    animation: zoomIn 1s ease forwards; /* 放大進入動畫 */
+    animation: zoomIn 1s ease forwards;
+    /* 放大進入動畫 */
 }
 
 /* 放大文字動畫 */
@@ -524,6 +580,7 @@ form button:hover {
         transform: scale(0.8);
         opacity: 0;
     }
+
     to {
         transform: scale(1.2);
         opacity: 1;
@@ -538,30 +595,7 @@ form button:hover {
     }
 }
 
-/* 滿版消息樣式 */
-.full-screen-message {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    /* 黑色背景 */
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    z-index: 1000;
-    animation: fadeOut 2s ease 3s forwards;
-    /* 自動消失動畫 */
-}
 
-.full-screen-message h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    animation: scaleUp 1s ease forwards;
-}
 
 /* 消失動畫 */
 @keyframes fadeOut {
@@ -589,14 +623,16 @@ form button:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* 黑色背景 */
+    background-color: rgba(0, 0, 0, 0.9);
+    /* 黑色背景 */
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     z-index: 1000;
-    animation: fadeOut 2s ease 3s forwards; /* 自動消失動畫 */
+    animation: fadeOut 5s ease 6s forwards;
+    /* 自動消失動畫 */
 }
 
 .full-screen-message h1 {
@@ -620,6 +656,7 @@ form button:hover {
     from {
         transform: scale(0.8);
     }
+
     to {
         transform: scale(1.2);
     }

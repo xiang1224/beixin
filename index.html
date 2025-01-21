@@ -11,7 +11,7 @@
 <body>
     <!-- 背景音樂 -->
     <audio id="background-music" loop>
-        <source src="img/music.mp" type="audio/mpeg">
+        <source src="img/music.mp3" type="audio/mpeg">
         您的瀏覽器不支援音樂播放。
     </audio>
 
@@ -53,6 +53,7 @@
         <div class="bigtitle">
             <h2 class="wave-text">
                 <span>生</span><span>日</span><span>快</span><span>樂</span><span>！</span>
+                
             </h2>
         </div>
 
@@ -62,24 +63,27 @@
             <button id="memory3" class="fade-in-button">最黏兄妹 (AlphaG 2.0)</button>
             <button id="memory4" class="fade-in-button">得來不易 (佰安市)</button>
             <button id="memory5" class="fade-in-button">甘苦人生 (現實RP)</button>
+            <div class="page-container" id="page-container" style="display: none;">
+                <button id="next-page-button">內容看完，最後再點這裡</button>
+            </div>
         </div>
 
         <div id="memory-display" class="memory-display">
             <!-- 顯示選擇的回憶 -->
         </div>
+        
     </div>
 
-    <div class="page-container" id="page-container" style="display: none;">
-        <button id="next-page-button">翻頁</button>
-    </div>
+    
 
 <div id="login-success-animation" class="full-screen-message" style="display: none;">
-    <h1>看來你很聰明喔~~</h1>
+    <h1>看來你很聰明喔~~恭喜你成功登入^_^</h1>
 </div>
 
     <div id="full-screen-message" class="full-screen-message" style="display: none;">
-        <h1>王小貝，生日快樂!!</h1>
+        <h1 id="message-text">王小貝，生日快樂!!</h1>
     </div>
+
 
 
 
