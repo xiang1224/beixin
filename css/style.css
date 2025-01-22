@@ -19,23 +19,64 @@ body {
 
 /* 提示框樣式 */
 .hint-box {
-    display: none;
-    /* 預設不顯示 */
-    position: absolute;
+    position: fixed;
     top: 50%;
-    /* 垂直居中 */
     left: 50%;
-    /* 水平居中 */
     transform: translate(-50%, -50%);
-    padding: 20px;
-    background: #fff;
-    border: 2px solid #3498db;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    text-align: center;
-    font-size: 1rem;
+    width: 300px;
+    background-color: #f9f9f9;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+    z-index: 1000;
 }
+
+.hint-header {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+}
+
+.hint-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.hint-content {
+    padding: 20px;
+    color: #333;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.hint-content p {
+    margin: 10px 0;
+}
+
+.hint-footer {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.hint-close-btn {
+    background-color: #e74c3c;
+    color: white;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hint-close-btn:hover {
+    background-color: #c0392b;
+}
+
+
 
 /* 遮罩層 */
 .hint-overlay {
@@ -377,8 +418,7 @@ form button:hover {
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #3498db;
-    /* 初始背景為亮藍色 */
+    background-color: #e74c3c;
     color: white;
     border: none;
     border-radius: 5px;
@@ -388,8 +428,7 @@ form button:hover {
 }
 
 #back-button:hover {
-    background-color: #2980b9;
-    /* 懸停時改為深藍色 */
+    background-color: #c0392b;
 }
 
 /* 記憶顯示區域 */
@@ -529,8 +568,8 @@ form button:hover {
 }
 
 #next-page-button {
-    background-color: #e74c3c;
-    /* 初始背景為亮紅色 */
+    background-color: #3498db;
+    /* 初始背景為亮藍色 */
     color: white;
     padding: 10px 20px;
     border: none;
@@ -542,8 +581,8 @@ form button:hover {
 }
 
 #next-page-button:hover {
-    background-color: #c0392b;
-    /* 懸停時改為深紅色 */
+    background-color: #2980b9;
+    /* 懸停時改為深藍色 */
 }
 
 /* 滿版文字動畫容器樣式 */
@@ -631,7 +670,7 @@ form button:hover {
     align-items: center;
     text-align: center;
     z-index: 1000;
-    animation: fadeOut 5s ease 6s forwards;
+    animation: fadeOut 8s ease 9s forwards;
     /* 自動消失動畫 */
 }
 

@@ -45,12 +45,16 @@ nextPageButton.addEventListener("click", function () {
     // 第二階段文字，延遲 2 秒後顯示
     setTimeout(() => {
         messageText.textContent = "祝你身體健康、事事順心";
-    }, 2000);
+    }, 3000);
 
     // 第三階段文字，延遲 4 秒後顯示
     setTimeout(() => {
-        messageText.textContent = "禮物結束~~";
-    }, 4000);
+        messageText.textContent = "最重要的...";
+    }, 6000);
+
+    setTimeout(() => {
+        messageText.textContent = "友誼長存~";
+    }, 9000);
 
     // 5 秒後隱藏動畫
     setTimeout(() => {
@@ -58,7 +62,7 @@ nextPageButton.addEventListener("click", function () {
 
         // 顯示完成提示或其他邏輯
         alert("就這樣，沒有囉~");
-    }, 7000);
+    }, 16000);
 });
 
 
@@ -181,10 +185,18 @@ document.addEventListener("DOMContentLoaded", function () {
         const hintBox = document.createElement('div');
         hintBox.className = 'hint-box';
         hintBox.innerHTML = `
-            <p><strong>帳號:</strong> 你的Discord帳號</p>
-            <p><strong>密碼:</strong> 你的生日</p>
-            <button id="close-hint">關閉</button>
-        `;
+    <div class="hint-header">
+        <h3>登入提示</h3>
+    </div>
+    <div class="hint-content">
+        <p><strong>帳號:</strong> 你的 Discord 帳號 (6 個英文)</p>
+        <p><strong>密碼:</strong> 你的生日 (4 個數字)</p>
+    </div>
+    <div class="hint-footer">
+        <button id="close-hint" class="hint-close-btn">關閉</button>
+    </div>
+`;
+
 
         // 建立遮罩層
         const overlay = document.createElement('div');
